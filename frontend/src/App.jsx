@@ -1,14 +1,14 @@
 
-import './App.css'
+import Signup from "./pages/Signup"
 
 function App() {
   
-
-  return (
-    <>
-      <div className='flex justify-center bg-black p-6 m-5 rounded-xl text-white text-2xl'>hello Urban Nest</div>
-    </>
+  return(
+    <div>
+        <Signup />
+    </div>
   )
+  
 }
 
 export default App
