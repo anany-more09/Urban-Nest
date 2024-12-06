@@ -1,49 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 const Signup = () => {
-
-    const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
 
     const handleSubmit = (e) => {
-        e.preventDfault();
-
-        try{
-            
-            useEffect(()=>{
-                  
-                 
-
-            }, [email])
-
-        }
-        catch(error)
-        {
-            
-        }
-
-    }
-
+        e.preventDefault();
+        console.log("Email:", email, "Password:", password);
+    };
 
     return (
         <div className="min-h-screen bg-gray-100 flex items-center justify-center">
             <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-sm">
                 <h1 className="text-2xl font-bold text-center mb-6 text-gray-800">Sign Up</h1>
-                
-                <form onSubmit={handleSubmit}>
-                    <div className="mb-4">
-                        <label htmlFor="name" className="block text-gray-700 font-medium mb-2">Name</label>
-                        <input
-                            type="text"
-                            onChange={(e) => setName(e.target.value)}
-                            id="name"
-                            placeholder="Enter your name"
-                            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
-                            required
-                        />
-                    </div>
 
+                <form onSubmit={handleSubmit}>
                     <div className="mb-4">
                         <label htmlFor="email" className="block text-gray-700 font-medium mb-2">Email</label>
                         <input
@@ -74,7 +45,9 @@ const Signup = () => {
                     >
                         Sign Up
                     </button>
-                    <p className="text-center py-3">Already have an acount? <a href="">Login</a></p>
+                    <p className="text-center py-3">
+                        Already have an account? <a href="#" className="text-blue-500 underline">Login</a>
+                    </p>
                 </form>
             </div>
         </div>
