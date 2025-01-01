@@ -5,6 +5,22 @@ import { useNavigate } from 'react-router-dom';
 // Expanded Rental Data with 20 Properties
 
 // import {rentalData} from '../assets/temp'
+const fetchCoordinates = async (address) => {
+  const apiKey = process.env.MAPS_API_QUICKPOSITION;
+  const response = await fetch(
+    `https://maps.googleapis.com/maps/api/geocode/json?address=${encodeURIComponent(
+      address
+    )}&key=${apiKey}`
+  );
+  const data = await response.json();
+  if (data.results && data.results.length > 0) {
+    const { lat, lng } = data.results[0].geometry.location;
+    setLocation({ lat, lng });
+  } else {
+    console.error("Location not found");
+  }
+};
+
 
 const rentalData = [
   {
